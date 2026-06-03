@@ -1,3 +1,4 @@
+const cloudinary = require('../../cloudinary');
 const db = require('../../database/db');
 
 const resolvers = {
@@ -57,6 +58,20 @@ const resolvers = {
             await db('Photo').where({ photo_id }).del();
             return { success: true, message: 'Foto eliminada correctamente' };
         },
+        uploadPhoto: async (_, { url, description, date_taken, user_id, album_id, event_id }) => {
+    const result = await cloudinary.uploader.upload(url, {
+        folder: 'momento'
+    });
+    await db('Photo').insert({ 
+        url: result.secure_url, 
+        description, 
+        date_taken, 
+        user_id, 
+        album_id, 
+        event_id 
+    });
+    return { success: true, message: 'Foto subida correctamente' };
+},
     },
 };
 

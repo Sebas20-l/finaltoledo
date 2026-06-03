@@ -89,6 +89,7 @@ const typeDefs = gql`
         updateAlbum(album_id: ID!, album_name: String, description: String): MutationResponse
         deleteReaction(reaction_id: ID!): MutationResponse
         deletePhoto(photo_id: ID!): MutationResponse
+        uploadPhoto(url: String!, description: String, date_taken: String, user_id: Int!, album_id: Int, event_id: Int): MutationResponse
     }
 `;
 
