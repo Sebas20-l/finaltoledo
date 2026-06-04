@@ -1,9 +1,15 @@
 {
+  "scripts": {
+    "dev": "node momento/src/server.js",
+    "start": "node src/server.js"
+  },
   "dependencies": {
     "apollo-server": "^3.13.0",
+    "bcryptjs": "^3.0.3",
     "cloudinary": "^2.10.0",
-    "dotenv": "^16.0.0",
+    "dotenv": "^16.6.1",
     "graphql": "^16.14.0",
+    "jsonwebtoken": "^9.0.3",
     "knex": "^3.2.10",
     "mysql2": "^3.9.0"
   }
