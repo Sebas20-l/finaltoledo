@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
  
-const SECRET = process.env.JWT_SECRET || 'momento_secret_key';
+const SECRET = process.env.JWT_secret || 'momento_secret_key';
  
 // Generar token con datos del usuario
 const generarToken = (usuario) => {
