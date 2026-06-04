@@ -66,6 +66,16 @@ const typeDefs = gql`
         message: String
     }
 
+    type AuthResponse {
+        token: String
+        user_id: ID
+        first_name: String
+        last_name: String
+        email: String
+        role: String
+        family_id: ID
+    }
+
     type Query {
         getFamilies: [Family]
         getUsers: [User]
@@ -75,9 +85,12 @@ const typeDefs = gql`
         getPersons: [Person]
         getReactions: [Reaction]
         getReminders: [Reminder]
+        getMe: User
     }
 
     type Mutation {
+        register(first_name: String!, last_name: String!, email: String!, password: String!, role: String!, family_id: Int!): AuthResponse
+        login(email: String!, password: String!): AuthResponse
         createFamily(family_name: String!): MutationResponse
         createUser(first_name: String!, last_name: String!, email: String!, role: String!, family_id: Int!): MutationResponse
         createPhoto(url: String!, description: String, date_taken: String, user_id: Int!, album_id: Int, event_id: Int): MutationResponse
